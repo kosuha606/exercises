@@ -1,0 +1,3 @@
+# exercises
+
+Differen programming exercises 
