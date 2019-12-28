@@ -17,12 +17,26 @@ class ListOfNumbers
     }
 
     /**
-     * @return Number[]
+     * @return exer\Number[]
      */
     public function iterator(): iterable
     {
         foreach ($this->list as $number) {
             yield $number;
+        }
+    }
+
+    public function count()
+    {
+        return count($this->list);
+    }
+
+    public function print()
+    {
+        /** @var Number $number */
+        foreach ($this->iterator() as $number) {
+            print($number);
+            print("\n");
         }
     }
 }

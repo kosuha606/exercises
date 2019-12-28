@@ -4,23 +4,18 @@ namespace exer\numbers;
 
 /**
  * @category Числа
- * @description Суммирует числа из ListOfNumbers
+ * @description Сумма только четных чисел в списке
  */
-class NumbersSum
+class EvenNumbersSum extends NumbersSum
 {
-    protected $sum;
-
     public function __construct(ListOfNumbers $listOfNumbers)
     {
         $sum = 0;
         foreach ($listOfNumbers->iterator() as $number) {
-            $sum += $number->value;
+            if ($number->value % 2 === 0) {
+                $sum += $number->value;
+            }
         }
         $this->sum = $sum;
-    }
-
-    public function __toString()
-    {
-        return "Sum is $this->sum";
     }
 }
