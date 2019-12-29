@@ -26,6 +26,14 @@ class ListOfNumbers
         }
     }
 
+    /**
+     * @return  Number[]
+     */
+    public function getList()
+    {
+        return $this->list;
+    }
+
     public function count()
     {
         return count($this->list);
