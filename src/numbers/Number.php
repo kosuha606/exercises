@@ -31,6 +31,13 @@ class Number
         return true;
     }
 
+    public function isPolyndrome(): bool
+    {
+        $reverse = strrev($this->value);
+        $right = (string)$this->value;
+        return $reverse === $right;
+    }
+
     public function __toString()
     {
         return (string)$this->value;
