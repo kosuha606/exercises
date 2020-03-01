@@ -1,0 +1,30 @@
+empty:
+        Memory:
+                 usedMemory: 260.57Mb
+        Time:
+                 executionTime: 458 ms
+one field integer:
+        Memory:
+                 usedMemory: 427.29Mb
+        Time:
+                 executionTime: 641 ms
+5 field integer:
+        Memory:
+                 usedMemory: 450.89Mb
+        Time:
+                 executionTime: 2041 ms
+one field string:
+        Memory:
+                 usedMemory: 240.91Mb
+        Time:
+                 executionTime: 934 ms
+5 field string:
+        Memory:
+                 usedMemory: 757.6Mb
+        Time:
+                 executionTime: 1656 ms
+total:
+        Time:
+                 executionTime: 5730 ms
+        Memory:
+                 usedMemory: 2137.26Mb

@@ -8,6 +8,8 @@ class Profile
 
     const MEMORY_FLAG = 2;
 
+    const INIT_SESSION_NAME = 'total';
+
     private static $instance;
 
     protected $flagsProcessors = [];
@@ -27,6 +29,7 @@ class Profile
         if (!self::$instance) {
             self::$instance = new static();
             self::$instance->init();
+            self::$instance->beginSession(self::INIT_SESSION_NAME, [self::TIME_FLAG, self::MEMORY_FLAG]);
         }
 
         return self::$instance;
@@ -99,9 +102,19 @@ class Profile
     {
         $beginMemory = $this->sessionsData[$name]['memory'];
         $now = memory_get_usage(1);
+        $result = $now - $beginMemory;
+        $visibleResult = 0;
+
+        if ($result > 1000) {
+            $visibleResult = round($result / 1000, 2).' Kb';
+        }
+
+        if ($result > 1000000) {
+            $visibleResult = round($result/1000000, 2).'Mb';
+        }
 
         return [
-            'usedMemory' => $now - $beginMemory
+            'usedMemory' => ($visibleResult),
         ];
     }
 
@@ -115,13 +128,17 @@ class Profile
 
     public function printResultsAsText()
     {
+        $this->dumpSession(self::INIT_SESSION_NAME);
         $result = "";
+
         foreach ($this->sessinsResults as $name => $values) {
             $result .= "$name: \n";
+
             foreach ($values as $flagId => $flagValues) {
-                $result .= "{$this->flagsLabels[$flagId]}: \n";
+                $result .= "\t{$this->flagsLabels[$flagId]}: \n";
+
                 foreach ($flagValues as $parameter => $value) {
-                    $result .= "\t $parameter: $value \n";
+                    $result .= "\t\t $parameter: $value \n";
                 }
             }
         }
