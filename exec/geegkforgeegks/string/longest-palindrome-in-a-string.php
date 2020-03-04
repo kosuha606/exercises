@@ -19,7 +19,7 @@ require_once __DIR__.'/../../../vendor/autoload.php';
 
 $input = <<<TEXT
 1
-aaaabbaasdasdddddj1lllvvvlll1sjalvznsladdalasjldfnlansdfladslfnallllasdflalsdf
+bbbbbbbbbb1111111111bbbbbbbbbb2
 TEXT;
 
 $longestPolindrome = function($str) {
@@ -38,7 +38,6 @@ $longestPolindrome = function($str) {
         $tempN--;
         $length = $tempN;
     }
-
 
     return '';
 };
