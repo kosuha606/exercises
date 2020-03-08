@@ -47,4 +47,11 @@ helloworld
 ldhellowor
 TEXT;
 
-echo GeeksToGeeks::string_twostr($input, $main);
+$output = <<<TEXT
+1
+0
+1
+TEXT;
+
+
+GeeksToGeeks::test(GeeksToGeeks::string_twostr($input, $main), $output);

@@ -30,4 +30,21 @@ class GeeksToGeeks
 
         return $output;
     }
+
+    public static function test($programResult, $output)
+    {
+        $outLines = explode("\n", $output);
+        $resultLines = explode("\n", $programResult);
+
+        foreach ($resultLines as $index => $value) {
+            if ($value === '') {
+                continue;
+            }
+            if ($value == $outLines[$index]) {
+                Printer::ln('OK: '.$value);
+            } else {
+                Printer::ln('Error: '.$value.', expected: '.$outLines[$index]);
+            }
+        }
+    }
 }
