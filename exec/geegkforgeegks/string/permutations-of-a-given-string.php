@@ -101,5 +101,4 @@ function makePermut($strSet)
     } else {
         return $strSet[0];
     }
-
 }
