@@ -17,14 +17,12 @@ $input = <<<TEXT
 abcd
 aba
 geeks
-hell
 TEXT;
 
 $output = <<<TEXT
 3
 0
 4
-3
 TEXT;
 
 $main = function($str) {
@@ -45,9 +43,24 @@ $main = function($str) {
     foreach ($variants as $variant) {
         if (isPolindrome($str.$variant)) {
             $result = $variant;
+            break;
         }
+
         if (isPolindrome($variant.$str)) {
             $result = $variant;
+            break;
+        }
+
+        foreach ($variants as $variant2) {
+            if (isPolindrome($variant.$str.$variant2)) {
+                $result = $variant.$variant2;
+                break;
+            }
+
+            if (isPolindrome($variant2.$str.$variant)) {
+                $result = $variant2.$variant;
+                break;
+            }
         }
     }
     if (isPolindrome($str)) {
